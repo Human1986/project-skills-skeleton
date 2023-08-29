@@ -1,20 +1,37 @@
 package com.epam.rd.autocode.set;
 
+import java.util.Arrays;
+import java.util.EnumSet;
+import java.util.HashSet;
 import java.util.Set;
+
+import static java.util.Arrays.asList;
 
 public class Role {
 
-	private Level level;
+    private final Level level;
 
-	private Position position;
+    private final Position position;
 
-	private Set<Skill> skills;
+    private final Set<Skill> skills;
 
-	public Role(Position position, Level level, Skill... skills) {
-	}
+    public Role(Position position, Level level, Skill... skills) {
 
-	public Set<Skill> getSkills() {
-		return null;
-	}
-	
+        this.position = position;
+        this.level = level;
+        this.skills = EnumSet.noneOf(Skill.class);
+        this.skills.addAll(asList(skills));
+    }
+
+    public Set<Skill> getSkills() {
+        return skills;
+    }
+
+    public Level getLevel() {
+        return level;
+    }
+
+    public Position getPosition() {
+        return position;
+    }
 }
