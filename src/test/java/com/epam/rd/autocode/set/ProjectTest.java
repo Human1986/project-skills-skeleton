@@ -52,13 +52,17 @@ class ProjectTest {
 	
 	@Test
 	void test1() {
-		Project project = new Project(new Role(Position.DEVELOPER, Level.A1, Skill.JAVA, Skill.DATABASE),
+		Project project = new Project(
+				new Role(Position.DEVELOPER, Level.A1, Skill.JAVA, Skill.DATABASE),
 				new Role(Position.KEY_DEVELOPER, Level.A2, Skill.JAVA, Skill.DATABASE, Skill.SPRING),
-				new Role(Position.TESTER, Level.A3, Skill.TESTING_TOOLS, Skill.AWS), new Role(Position.TESTER, Level.A3, Skill.AWS));
+				new Role(Position.TESTER, Level.A3, Skill.TESTING_TOOLS, Skill.AWS),
+				new Role(Position.TESTER, Level.A3, Skill.AWS));
 
-		Set<Member> team = new HashSet<>(Arrays.asList(new Member("Name1", Level.A1, Skill.JAVA, Skill.DATABASE),
+		Set<Member> team = new HashSet<>(Arrays.asList(
+				new Member("Name1", Level.A1, Skill.JAVA, Skill.DATABASE),
 				new Member("Name2", Level.A2, Skill.JAVA, Skill.DATABASE, Skill.SPRING),
-				new Member("Name3", Level.A3, Skill.TESTING_TOOLS, Skill.AWS), new Member("Name4", Level.A3, Skill.TESTING_TOOLS)));
+				new Member("Name3", Level.A3, Skill.TESTING_TOOLS, Skill.AWS),
+				new Member("Name4", Level.A3, Skill.TESTING_TOOLS)));
 
 		int expected = 87;
 		int actual = project.getConformity(team);
@@ -81,12 +85,16 @@ class ProjectTest {
 
 	@Test
 	void test3() {
-		Project project = new Project(new Role(Position.DEVELOPER, Level.A1, Skill.JAVA),
-				new Role(Position.KEY_DEVELOPER, Level.A2, Skill.JAVA), new Role(Position.TESTER, Level.A3, Skill.TESTING_TOOLS),
+		Project project = new Project(
+				new Role(Position.DEVELOPER, Level.A1, Skill.JAVA),
+				new Role(Position.KEY_DEVELOPER, Level.A2, Skill.JAVA),
+				new Role(Position.TESTER, Level.A3, Skill.TESTING_TOOLS),
 				new Role(Position.TESTER, Level.A3, Skill.AWS));
 
-		Set<Member> team = new HashSet<>(Arrays.asList(new Member("Name1", Level.A1, Skill.JAVA, Skill.DATABASE),
-				new Member("Name2", Level.A2, Skill.JAVA, Skill.DATABASE), new Member("Name4", Level.A3, Skill.TESTING_TOOLS)));
+		Set<Member> team = new HashSet<>(Arrays.asList(
+				new Member("Name1", Level.A1, Skill.JAVA, Skill.DATABASE),
+				new Member("Name2", Level.A2, Skill.JAVA, Skill.DATABASE),
+				new Member("Name4", Level.A3, Skill.TESTING_TOOLS)));
 
 		int expected = 75;
 		int actual = project.getConformity(team);

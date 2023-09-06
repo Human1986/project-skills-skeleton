@@ -1,10 +1,7 @@
 package com.epam.rd.autocode.set;
-
 import java.util.Arrays;
 import java.util.EnumSet;
-import java.util.HashSet;
 import java.util.Set;
-
 import static java.util.Arrays.asList;
 
 public class Role {
@@ -19,8 +16,8 @@ public class Role {
 
         this.position = position;
         this.level = level;
-        this.skills = EnumSet.noneOf(Skill.class);
-        this.skills.addAll(asList(skills));
+        this.skills = EnumSet.copyOf(Arrays.asList(skills));
+
     }
 
     public Set<Skill> getSkills() {

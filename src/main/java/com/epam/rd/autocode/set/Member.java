@@ -1,9 +1,9 @@
 package com.epam.rd.autocode.set;
 
+
 import java.util.Arrays;
 import java.util.EnumSet;
 import java.util.Set;
-
 import static java.util.Arrays.asList;
 
 public class Member {
@@ -18,9 +18,7 @@ public class Member {
 
         this.name = name;
         this.level = level;
-        this.skills = EnumSet.noneOf(Skill.class);
-        this.skills.addAll(asList(skills));
-
+        this.skills = EnumSet.copyOf(Arrays.asList(skills));
     }
 
     public String getName() {
